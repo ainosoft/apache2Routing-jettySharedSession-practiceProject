@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: service3
-        image: multi-service-webapp-service3:latest # Your Docker image for service3
+        image: multi-service-webapp-service3:latest 
         imagePullPolicy: Never
         ports:
         - containerPort: 8080
