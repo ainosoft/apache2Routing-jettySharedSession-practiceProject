@@ -1,0 +1,70 @@
+version: '3.8'
+
+services:
+  mysql:
+    image: mysql:8.0
+    environment:
+      MYSQL_ROOT_PASSWORD: "mysql#hznr"
+      MYSQL_DATABASE: myjettydb
+    ports:
+      - "3307:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "-pmysql#hznr"]
+      timeout: 10s
+      retries: 10
+      interval: 5s
+      start_period: 30s
+
+  jetty-node1:
+    build: .
+    environment:
+      - WORKER_NAME=node1
+      - SERVER_PORT=8080
+    ports:
+      - "8081:8080"
+    depends_on:
+      mysql:
+        condition: service_healthy
+    restart: unless-stopped
+
+  jetty-node2:
+    build: .
+    environment:
+      - WORKER_NAME=node2
+      - SERVER_PORT=8080
+    ports:
+      - "8082:8080"
+    depends_on:
+      mysql:
+        condition: service_healthy
+    restart: unless-stopped
+
+  jetty-node3:
+    build: .
+    environment:
+      - WORKER_NAME=node3
+      - SERVER_PORT=8080
+    ports:
+      - "8083:8080"
+    depends_on:
+      mysql:
+        condition: service_healthy
+    restart: unless-stopped
+
+  nginx:
+    image: nginx:alpine
+    ports:
+      - "8090:80"
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+    depends_on:
+      - jetty-node1
+      - jetty-node2
+      - jetty-node3
+    restart: unless-stopped
+
+volumes:
+  mysql_data:

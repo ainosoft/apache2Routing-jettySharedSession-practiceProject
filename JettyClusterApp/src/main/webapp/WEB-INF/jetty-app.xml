@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE Configure PUBLIC "-//Jetty//Configure//EN" "[http://www.eclipse.org/jetty/configure_9_4.dtd](http://www.eclipse.org/jetty/configure_9_4.dtd)">
+
+<Configure class="org.eclipse.jetty.webapp.WebAppContext">
+
+    <!-- 1. Define the JNDI DataSource -->
+    <New id="myDS" class="org.eclipse.jetty.plus.jndi.Resource">
+        <Arg></Arg>
+        <Arg>jdbc/myJettyDB</Arg>
+        <Arg>
+            <New class="com.mysql.cj.jdbc.MysqlDataSource">
+                <!-- IMPORTANT: This connects from the container to your host machine -->
+                <Set name="url">jdbc:mysql://host.docker.internal:3306/myjettydb?serverTimezone=UTC</Set>
+                <Set name="user">root</Set>
+                <!-- NOTE: Replace with your actual MySQL password -->
+                <Set name="password">mysql#htznr</Set>
+            </New>
+        </Arg>
+    </New>
+
+    <!-- 2. Create the SessionHandler -->
+    <New id="sessionHandler" class="org.eclipse.jetty.server.session.SessionHandler"/>
+
+    <!-- 3. Create the JDBC data store -->
+    <New id="jdbcDataStore" class="org.eclipse.jetty.server.session.JDBCSessionDataStore">
+        <Set name="dataSource"><Ref refid="myDS"/></Set>
+    </New>
+
+    <!-- 4. Create the Session Cache, linking the handler and data store -->
+    <New id="sessionCache" class="org.eclipse.jetty.server.session.DefaultSessionCache">
+        <Arg><Ref refid="sessionHandler"/></Arg>
+        <Set name="sessionDataStore"><Ref refid="jdbcDataStore"/></Set>
+    </New>
+
+    <!-- 5. Set the configured session handler on the webapp -->
+    <Set name="sessionHandler">
+        <Ref refid="sessionHandler">
+            <Set name="sessionCache"><Ref refid="sessionCache"/></Set>
+        </Ref>
+    </Set>
+</Configure>
