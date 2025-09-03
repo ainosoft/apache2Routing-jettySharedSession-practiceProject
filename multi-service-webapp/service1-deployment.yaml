@@ -5,7 +5,7 @@ metadata:
   labels:
     app: service1
 spec:
-  replicas: 1 # You can scale this up later if needed
+  replicas: 1 
   selector:
     matchLabels:
       app: service1
@@ -16,18 +16,18 @@ spec:
     spec:
       containers:
       - name: service1
-        image: multi-service-webapp-service1:latest # The Docker image for service1
-        imagePullPolicy: Never # Minikube uses local images, so don't try to pull from Docker Hub
+        image: multi-service-webapp-service1:latest 
+        imagePullPolicy: Never 
         ports:
         - containerPort: 8080
         env:
         - name: SPRING_DATASOURCE_URL
-          value: "jdbc:postgresql://db:5432/mydatabase" # Use the internal 'db' service name
+          value: "jdbc:postgresql://db:5432/mydatabase" 
         - name: SPRING_DATASOURCE_USERNAME
           value: "myuser"
         - name: SPRING_DATASOURCE_PASSWORD
           value: "mypassword"
-        # Optional: Define resource limits and requests for better cluster management
+        
         resources:
           requests:
             memory: "256Mi"
@@ -40,7 +40,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: service1 # This service name will be used by Apache to access Service 1
+  name: service1 
 spec:
   selector:
     app: service1
