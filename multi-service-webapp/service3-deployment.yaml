@@ -1,0 +1,49 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: service3-deployment
+  labels:
+    app: service3
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: service3
+  template:
+    metadata:
+      labels:
+        app: service3
+    spec:
+      containers:
+      - name: service3
+        image: multi-service-webapp-service3:latest # Your Docker image for service3
+        imagePullPolicy: Never
+        ports:
+        - containerPort: 8080
+        env:
+        - name: SPRING_DATASOURCE_URL
+          value: "jdbc:postgresql://db:5432/mydatabase"
+        - name: SPRING_DATASOURCE_USERNAME
+          value: "myuser"
+        - name: SPRING_DATASOURCE_PASSWORD
+          value: "mypassword"
+        resources:
+          requests:
+            memory: "256Mi"
+            cpu: "250m"
+          limits:
+            memory: "512Mi"
+            cpu: "500m"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: service3
+spec:
+  selector:
+    app: service3
+  ports:
+    - protocol: TCP
+      port: 8080
+      targetPort: 8080
+

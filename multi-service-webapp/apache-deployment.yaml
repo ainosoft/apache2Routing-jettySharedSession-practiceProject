@@ -1,0 +1,85 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "multi-service-webapp-chart.fullname" . }}-apache
+  labels:
+    {{- include "multi-service-webapp-chart.labels" . | nindent 4 }}
+    app.kubernetes.io/component: apache
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      {{- include "multi-service-webapp-chart.selectorLabels" . | nindent 6 }}
+      app.kubernetes.io/component: apache
+  template:
+    metadata:
+      {{- with .Values.podAnnotations }}
+      annotations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      labels:
+        {{- include "multi-service-webapp-chart.selectorLabels" . | nindent 8 }}
+        app.kubernetes.io/component: apache
+    spec:
+      {{- with .Values.imagePullSecrets }}
+      imagePullSecrets:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      serviceAccountName: {{ include "multi-service-webapp-chart.serviceAccountName" . }}
+      securityContext:
+        {{- toYaml .Values.podSecurityContext | nindent 8 }}
+      containers:
+        - name: apache
+          securityContext:
+            {{- toYaml .Values.securityContext | nindent 12 }}
+          image: "{{ .Values.apache.image }}"
+          imagePullPolicy: {{ .Values.apache.imagePullPolicy }}
+          ports:
+            - containerPort: 80
+          resources:
+            {{- toYaml .Values.apache.resources | nindent 12 }}
+          volumeMounts:
+            - name: apache-config
+              mountPath: /usr/local/apache2/conf/extra/httpd-vhosts.conf
+              subPath: httpd-vhosts.conf
+            - name: lua-script-volume
+              mountPath: /usr/local/apache2/conf/lua/
+              readOnly: true
+      volumes:
+        - name: apache-config
+          configMap:
+            name: {{ .Release.Name }}-apache-config
+        - name: lua-script-volume
+          configMap:
+            name: {{ .Release.Name }}-lua-script
+      {{- with .Values.nodeSelector }}
+      nodeSelector:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.affinity }}
+      affinity:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.tolerations }}
+      tolerations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: apache-proxy
+  labels:
+    {{- include "multi-service-webapp-chart.labels" . | nindent 4 }}
+    app.kubernetes.io/component: apache
+spec:
+  type: NodePort
+  selector:
+    {{- include "multi-service-webapp-chart.selectorLabels" . | nindent 4 }}
+    app.kubernetes.io/component: apache
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
+      nodePort: {{ .Values.apache.nodePort }}
+      name: http

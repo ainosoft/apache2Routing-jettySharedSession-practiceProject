@@ -1,0 +1,71 @@
+version: '3.8'
+
+services:
+  # PostgreSQL Database Service
+  db:
+    image: postgres:14.5
+    environment:
+      - POSTGRES_USER=user
+      - POSTGRES_PASSWORD=root
+      - POSTGRES_DB=mydb
+    volumes:
+      - db-data:/var/lib/postgresql/data # Persistent data for your database
+    # No ports exposed by default; services communicate internally
+
+  # Apache Reverse Proxy Service
+  apache:
+    build: ./apache # Dockerfile is in the 'apache' directory
+    ports:
+      - "80:80" # Map host port 80 to container's port 80 (Apache listens here)
+    depends_on:
+      - service1 # Ensure Spring Boot services are up before Apache starts
+      - service2
+      - service3
+    # Environment variable to suppress ServerName warnings
+    environment:
+      - APACHE_SERVER_NAME=localhost
+
+  # Spring Boot Application Service 1
+  service1:
+    build: ./service1 # Dockerfile is in the 'service1' directory
+    depends_on:
+      - db # Service 1 depends on the database
+    # We expose port 8080 internally for Apache to reach it
+    # No host port mapping here, as Apache is the public-facing entry point
+    expose:
+      - "8080"
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://db:5432/mydb
+      - SPRING_DATASOURCE_USERNAME=user
+      - SPRING_DATASOURCE_PASSWORD=root
+      - SERVER_PORT=8080 # Ensure Spring Boot listens on 8080 internally
+
+  # Spring Boot Application Service 2
+  service2:
+    build: ./service2 # Dockerfile is in the 'service2' directory
+    depends_on:
+      - db # Service 2 depends on the database
+    expose:
+      - "8080"
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://db:5432/mydb
+      - SPRING_DATASOURCE_USERNAME=user
+      - SPRING_DATASOURCE_PASSWORD=root
+      - SERVER_PORT=8080
+
+  # Spring Boot Application Service 3
+  service3:
+    build: ./service3 # Dockerfile is in the 'service3' directory
+    depends_on:
+      - db # Service 3 depends on the database
+    expose:
+      - "8080"
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://db:5432/mydb
+      - SPRING_DATASOURCE_USERNAME=user
+      - SPRING_DATASOURCE_PASSWORD=root
+      - SERVER_PORT=8080
+
+volumes:
+  db-data: # Define the named volume for database persistence
+

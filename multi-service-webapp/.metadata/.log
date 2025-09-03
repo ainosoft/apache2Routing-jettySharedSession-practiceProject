@@ -1,0 +1,393 @@
+!SESSION 2025-08-28 09:41:43.394 -----------------------------------------------
+eclipse.buildId=4.36.0.20250605-1300
+java.version=21.0.7
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_IN
+Framework arguments:  -product org.eclipse.epp.package.java.product
+Command-line arguments:  -os linux -ws gtk -arch x86_64 -product org.eclipse.epp.package.java.product -data /home/ainosoft/Documents/multi-service-webapp
+
+!ENTRY ch.qos.logback.classic 1 0 2025-08-28 09:41:44.759
+!MESSAGE Activated before the state location was initialized. Retry after the state location is initialized.
+
+!ENTRY ch.qos.logback.classic 1 0 2025-08-28 09:41:46.720
+!MESSAGE Logback config file: /home/ainosoft/Documents/multi-service-webapp/.metadata/.plugins/org.eclipse.m2e.logback/logback.2.7.100.20250418-1315.xml
+
+!ENTRY org.eclipse.ui 2 0 2025-08-28 09:41:47.655
+!MESSAGE Warnings while parsing the images from the 'org.eclipse.ui.commandImages' extension point.
+!SUBENTRY 1 org.eclipse.ui 2 0 2025-08-28 09:41:47.655
+!MESSAGE Cannot bind to an undefined command: plug-in='com.genuitec.eclipse.theming.ui', id='com.genuitec.myeclipse.help.darktheme.commandid'
+
+!ENTRY com.genuitec.eclipse.theming.ui 1 0 2025-08-28 09:41:47.973
+!MESSAGE A DevStyle Theme is being activated on this workspace; preparing colors and configuration
+
+!ENTRY com.genuitec.eclipse.theming.ui 1 0 2025-08-28 09:41:47.985
+!MESSAGE DevStyle has archived current color configurations to alternate preferences - will be restored when switching out of the DevStyle Theme
+
+!ENTRY com.genuitec.copilot4eclipse.boot 1 0 2025-08-28 09:41:52.151
+!MESSAGE C4E booting
+
+!ENTRY com.genuitec.copilot4eclipse.copilotapi 1 0 2025-08-28 09:41:52.168
+!MESSAGE [C4E] Starting CopilotAPI
+
+!ENTRY com.microsoft.copilot.eclipse 1 0 2025-08-28 09:41:52.176
+!MESSAGE [Info] Starting language server with binary lsp agent.
+
+!ENTRY com.microsoft.copilot.eclipse 1 0 2025-08-28 09:41:52.195
+!MESSAGE [Info] Lsp agent started successfully.
+
+!ENTRY com.codetogether.hq.eclipse 4 0 2025-08-28 09:41:52.277
+!MESSAGE Missing 'onpremises-url' in p2 UI metadata, unable to confirm CodeTogether HQ backend URL
+
+!ENTRY org.eclipse.ui 4 0 2025-08-28 09:41:52.794
+!MESSAGE Unhandled event loop exception
+!STACK 0
+java.lang.IllegalArgumentException: Home info is not set
+	at com.codetogether.hq.system.SystemSetupService.lambda$1(SystemSetupService.java:60)
+	at java.base/java.util.Optional.orElseThrow(Optional.java:403)
+	at com.codetogether.hq.system.SystemSetupService.<init>(SystemSetupService.java:60)
+	at com.codetogether.hq.system.SystemSetupService.lambda$0(SystemSetupService.java:55)
+	at java.base/java.util.Map.computeIfAbsent(Map.java:1066)
+	at com.codetogether.hq.system.SystemSetupService.forContext(SystemSetupService.java:55)
+	at com.codetogether.hq.auth.AuthenticationService.<init>(AuthenticationService.java:50)
+	at com.codetogether.hq.auth.AuthenticationService.lambda$0(AuthenticationService.java:45)
+	at java.base/java.util.Map.computeIfAbsent(Map.java:1066)
+	at com.codetogether.hq.auth.AuthenticationService.forContext(AuthenticationService.java:45)
+	at com.codetogether.hq.events.EventsHandler.<init>(EventsHandler.java:66)
+	at com.codetogether.hq.events.EventsHandler.lambda$0(EventsHandler.java:61)
+	at java.base/java.util.Map.computeIfAbsent(Map.java:1066)
+	at com.codetogether.hq.events.EventsHandler.forContext(EventsHandler.java:61)
+	at com.codetogether.hq.eclipse.core.ui.InsightsStatusBarManager.startup(InsightsStatusBarManager.java:62)
+	at com.codetogether.hq.eclipse.CodeInsightsCore.lambda$5(CodeInsightsCore.java:159)
+	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:40)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:132)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:5052)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:4525)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$5.run(PartRenderingEngine.java:1151)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:339)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1042)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:153)
+	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:678)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:339)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:583)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:173)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:185)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:219)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:149)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:115)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:467)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:298)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:627)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:575)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1431)
+	at org.eclipse.equinox.launcher.Main.main(Main.java:1403)
+
+!ENTRY com.genuitec.copilot4eclipse.chat 1 0 2025-08-28 09:41:53.338
+!MESSAGE [C4E] Conversation persistence: /home/ainosoft/Documents/multi-service-webapp/.metadata/.plugins/com.genuitec.copilot4eclipse/chatdata
+
+!ENTRY com.genuitec.copilot4eclipse.copilotapi 1 0 2025-08-28 09:41:53.364
+!MESSAGE [C4E] Copilot API proxy: native mode
+
+!ENTRY org.eclipse.lsp4e 1 0 2025-08-28 09:41:53.488
+!MESSAGE [Info]	[lsp] GitHub Copilot Language Server 1.321.0 initialized
+
+!ENTRY com.genuitec.copilot4eclipse.chat 1 0 2025-08-28 09:41:53.509
+!MESSAGE [C4E] Internal server started: true uri: http://localhost:35501/chat
+
+!ENTRY com.genuitec.copilot4eclipse.boot 1 0 2025-08-28 09:41:54.034
+!MESSAGE C4E API started
+
+!ENTRY com.genuitec.copilot4eclipse.chat 1 0 2025-08-28 09:41:58.401
+!MESSAGE [C4E] Workspace labels: 
+!SESSION 2025-08-28 10:04:15.860 -----------------------------------------------
+eclipse.buildId=4.36.0.20250605-1300
+java.version=21.0.7
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_IN
+Framework arguments:  -product org.eclipse.epp.package.java.product
+Command-line arguments:  -os linux -ws gtk -arch x86_64 -product org.eclipse.epp.package.java.product
+
+!ENTRY ch.qos.logback.classic 1 0 2025-08-28 10:04:30.241
+!MESSAGE Activated before the state location was initialized. Retry after the state location is initialized.
+
+!ENTRY org.eclipse.core.resources 2 10035 2025-08-28 10:04:39.046
+!MESSAGE The workspace exited with unsaved changes in the previous session; refreshing workspace to recover changes.
+
+!ENTRY ch.qos.logback.classic 1 0 2025-08-28 10:04:40.065
+!MESSAGE Logback config file: /home/ainosoft/Documents/multi-service-webapp/.metadata/.plugins/org.eclipse.m2e.logback/logback.2.7.100.20250418-1315.xml
+
+!ENTRY com.genuitec.copilot4eclipse.boot 1 0 2025-08-28 10:04:47.664
+!MESSAGE C4E booting
+
+!ENTRY com.genuitec.copilot4eclipse.copilotapi 1 0 2025-08-28 10:04:47.727
+!MESSAGE [C4E] Starting CopilotAPI
+
+!ENTRY com.microsoft.copilot.eclipse 1 0 2025-08-28 10:04:47.745
+!MESSAGE [Info] Starting language server with binary lsp agent.
+
+!ENTRY com.microsoft.copilot.eclipse 1 0 2025-08-28 10:04:47.847
+!MESSAGE [Info] Lsp agent started successfully.
+
+!ENTRY com.codetogether.hq.eclipse 4 0 2025-08-28 10:04:48.113
+!MESSAGE Missing 'onpremises-url' in p2 UI metadata, unable to confirm CodeTogether HQ backend URL
+
+!ENTRY org.eclipse.ui 4 0 2025-08-28 10:04:48.500
+!MESSAGE Unhandled event loop exception
+!STACK 0
+java.lang.IllegalArgumentException: Home info is not set
+	at com.codetogether.hq.system.SystemSetupService.lambda$1(SystemSetupService.java:60)
+	at java.base/java.util.Optional.orElseThrow(Optional.java:403)
+	at com.codetogether.hq.system.SystemSetupService.<init>(SystemSetupService.java:60)
+	at com.codetogether.hq.system.SystemSetupService.lambda$0(SystemSetupService.java:55)
+	at java.base/java.util.Map.computeIfAbsent(Map.java:1066)
+	at com.codetogether.hq.system.SystemSetupService.forContext(SystemSetupService.java:55)
+	at com.codetogether.hq.auth.AuthenticationService.<init>(AuthenticationService.java:50)
+	at com.codetogether.hq.auth.AuthenticationService.lambda$0(AuthenticationService.java:45)
+	at java.base/java.util.Map.computeIfAbsent(Map.java:1066)
+	at com.codetogether.hq.auth.AuthenticationService.forContext(AuthenticationService.java:45)
+	at com.codetogether.hq.events.EventsHandler.<init>(EventsHandler.java:66)
+	at com.codetogether.hq.events.EventsHandler.lambda$0(EventsHandler.java:61)
+	at java.base/java.util.Map.computeIfAbsent(Map.java:1066)
+	at com.codetogether.hq.events.EventsHandler.forContext(EventsHandler.java:61)
+	at com.codetogether.hq.eclipse.core.ui.InsightsStatusBarManager.startup(InsightsStatusBarManager.java:62)
+	at com.codetogether.hq.eclipse.CodeInsightsCore.lambda$5(CodeInsightsCore.java:159)
+	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:40)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:132)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:5052)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:4525)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$5.run(PartRenderingEngine.java:1151)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:339)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1042)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:153)
+	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:678)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:339)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:583)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:173)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:185)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:219)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:149)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:115)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:467)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:298)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:627)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:575)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1431)
+	at org.eclipse.equinox.launcher.Main.main(Main.java:1403)
+
+!ENTRY org.eclipse.lsp4e 1 0 2025-08-28 10:04:51.188
+!MESSAGE [Info]	[lsp] GitHub Copilot Language Server 1.321.0 initialized
+
+!ENTRY com.genuitec.copilot4eclipse.chat 1 0 2025-08-28 10:04:51.281
+!MESSAGE [C4E] Conversation persistence: /home/ainosoft/Documents/multi-service-webapp/.metadata/.plugins/com.genuitec.copilot4eclipse/chatdata
+
+!ENTRY com.genuitec.copilot4eclipse.copilotapi 1 0 2025-08-28 10:04:51.321
+!MESSAGE [C4E] Copilot API proxy: native mode
+
+!ENTRY com.genuitec.copilot4eclipse.chat 1 0 2025-08-28 10:04:51.603
+!MESSAGE [C4E] Internal server started: true uri: http://localhost:41103/chat
+
+!ENTRY com.genuitec.copilot4eclipse.boot 1 0 2025-08-28 10:04:52.036
+!MESSAGE C4E API started
+
+!ENTRY com.genuitec.copilot4eclipse.chat 1 0 2025-08-28 10:04:56.304
+!MESSAGE [C4E] Workspace labels: java,maven
+!SESSION 2025-08-28 10:54:45.470 -----------------------------------------------
+eclipse.buildId=4.36.0.20250605-1300
+java.version=21.0.7
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_IN
+Framework arguments:  -product org.eclipse.epp.package.java.product
+Command-line arguments:  -os linux -ws gtk -arch x86_64 -product org.eclipse.epp.package.java.product
+
+!ENTRY ch.qos.logback.classic 1 0 2025-08-28 10:54:55.259
+!MESSAGE Activated before the state location was initialized. Retry after the state location is initialized.
+
+!ENTRY org.eclipse.core.resources 2 10035 2025-08-28 10:55:01.754
+!MESSAGE The workspace exited with unsaved changes in the previous session; refreshing workspace to recover changes.
+
+!ENTRY ch.qos.logback.classic 1 0 2025-08-28 10:55:02.828
+!MESSAGE Logback config file: /home/ainosoft/Documents/multi-service-webapp/.metadata/.plugins/org.eclipse.m2e.logback/logback.2.7.100.20250418-1315.xml
+
+!ENTRY com.genuitec.copilot4eclipse.boot 1 0 2025-08-28 10:55:10.296
+!MESSAGE C4E booting
+
+!ENTRY com.genuitec.copilot4eclipse.copilotapi 1 0 2025-08-28 10:55:10.372
+!MESSAGE [C4E] Starting CopilotAPI
+
+!ENTRY com.microsoft.copilot.eclipse 1 0 2025-08-28 10:55:10.396
+!MESSAGE [Info] Starting language server with binary lsp agent.
+
+!ENTRY com.microsoft.copilot.eclipse 1 0 2025-08-28 10:55:10.457
+!MESSAGE [Info] Lsp agent started successfully.
+
+!ENTRY com.codetogether.hq.eclipse 4 0 2025-08-28 10:55:10.685
+!MESSAGE Missing 'onpremises-url' in p2 UI metadata, unable to confirm CodeTogether HQ backend URL
+
+!ENTRY org.eclipse.ui 4 0 2025-08-28 10:55:11.063
+!MESSAGE Unhandled event loop exception
+!STACK 0
+java.lang.IllegalArgumentException: Home info is not set
+	at com.codetogether.hq.system.SystemSetupService.lambda$1(SystemSetupService.java:60)
+	at java.base/java.util.Optional.orElseThrow(Optional.java:403)
+	at com.codetogether.hq.system.SystemSetupService.<init>(SystemSetupService.java:60)
+	at com.codetogether.hq.system.SystemSetupService.lambda$0(SystemSetupService.java:55)
+	at java.base/java.util.Map.computeIfAbsent(Map.java:1066)
+	at com.codetogether.hq.system.SystemSetupService.forContext(SystemSetupService.java:55)
+	at com.codetogether.hq.auth.AuthenticationService.<init>(AuthenticationService.java:50)
+	at com.codetogether.hq.auth.AuthenticationService.lambda$0(AuthenticationService.java:45)
+	at java.base/java.util.Map.computeIfAbsent(Map.java:1066)
+	at com.codetogether.hq.auth.AuthenticationService.forContext(AuthenticationService.java:45)
+	at com.codetogether.hq.events.EventsHandler.<init>(EventsHandler.java:66)
+	at com.codetogether.hq.events.EventsHandler.lambda$0(EventsHandler.java:61)
+	at java.base/java.util.Map.computeIfAbsent(Map.java:1066)
+	at com.codetogether.hq.events.EventsHandler.forContext(EventsHandler.java:61)
+	at com.codetogether.hq.eclipse.core.ui.InsightsStatusBarManager.startup(InsightsStatusBarManager.java:62)
+	at com.codetogether.hq.eclipse.CodeInsightsCore.lambda$5(CodeInsightsCore.java:159)
+	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:40)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:132)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:5052)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:4525)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$5.run(PartRenderingEngine.java:1151)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:339)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1042)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:153)
+	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:678)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:339)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:583)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:173)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:185)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:219)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:149)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:115)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:467)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:298)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:627)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:575)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1431)
+	at org.eclipse.equinox.launcher.Main.main(Main.java:1403)
+
+!ENTRY org.eclipse.lsp4e 1 0 2025-08-28 10:55:13.011
+!MESSAGE [Info]	[lsp] GitHub Copilot Language Server 1.321.0 initialized
+
+!ENTRY com.genuitec.copilot4eclipse.chat 1 0 2025-08-28 10:55:13.500
+!MESSAGE [C4E] Conversation persistence: /home/ainosoft/Documents/multi-service-webapp/.metadata/.plugins/com.genuitec.copilot4eclipse/chatdata
+
+!ENTRY com.genuitec.copilot4eclipse.copilotapi 1 0 2025-08-28 10:55:13.535
+!MESSAGE [C4E] Copilot API proxy: native mode
+
+!ENTRY com.genuitec.copilot4eclipse.chat 1 0 2025-08-28 10:55:13.714
+!MESSAGE [C4E] Internal server started: true uri: http://localhost:44531/chat
+
+!ENTRY com.genuitec.copilot4eclipse.boot 1 0 2025-08-28 10:55:14.058
+!MESSAGE C4E API started
+
+!ENTRY com.genuitec.copilot4eclipse.chat 1 0 2025-08-28 10:55:18.617
+!MESSAGE [C4E] Workspace labels: java,maven
+
+!ENTRY com.genuitec.copilot4eclipse.chat 1 0 2025-08-28 11:27:20.991
+!MESSAGE [C4E] Internal server stopped: Server@5ac516b1{STOPPED}[10.0.25,sto=0]
+
+!ENTRY com.genuitec.copilot4eclipse.chat 1 0 2025-08-28 11:27:20.992
+!MESSAGE [C4E] Internal server stopped: true
+!SESSION 2025-09-03 14:16:03.362 -----------------------------------------------
+eclipse.buildId=4.36.0.20250605-1300
+java.version=21.0.7
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_IN
+Framework arguments:  -product org.eclipse.epp.package.java.product
+Command-line arguments:  -os linux -ws gtk -arch x86_64 -product org.eclipse.epp.package.java.product -data /home/ainosoft/Documents/multi-service-webapp
+
+!ENTRY ch.qos.logback.classic 1 0 2025-09-03 14:16:04.931
+!MESSAGE Activated before the state location was initialized. Retry after the state location is initialized.
+
+!ENTRY ch.qos.logback.classic 1 0 2025-09-03 14:16:06.933
+!MESSAGE Logback config file: /home/ainosoft/Documents/multi-service-webapp/.metadata/.plugins/org.eclipse.m2e.logback/logback.2.7.100.20250418-1315.xml
+
+!ENTRY com.genuitec.copilot4eclipse.boot 1 0 2025-09-03 14:16:11.884
+!MESSAGE C4E booting
+
+!ENTRY com.genuitec.copilot4eclipse.copilotapi 1 0 2025-09-03 14:16:11.897
+!MESSAGE [C4E] Starting CopilotAPI
+
+!ENTRY com.microsoft.copilot.eclipse 1 0 2025-09-03 14:16:11.903
+!MESSAGE [Info] Starting language server with binary lsp agent.
+
+!ENTRY com.microsoft.copilot.eclipse 1 0 2025-09-03 14:16:11.934
+!MESSAGE [Info] Lsp agent started successfully.
+
+!ENTRY com.codetogether.hq.eclipse 4 0 2025-09-03 14:16:11.972
+!MESSAGE Missing 'onpremises-url' in p2 UI metadata, unable to confirm CodeTogether HQ backend URL
+
+!ENTRY org.eclipse.lsp4e 1 0 2025-09-03 14:16:12.623
+!MESSAGE [Info]	[lsp] GitHub Copilot Language Server 1.321.0 initialized
+
+!ENTRY org.eclipse.ui 4 0 2025-09-03 14:16:12.889
+!MESSAGE Unhandled event loop exception
+!STACK 0
+java.lang.IllegalArgumentException: Home info is not set
+	at com.codetogether.hq.system.SystemSetupService.lambda$1(SystemSetupService.java:60)
+	at java.base/java.util.Optional.orElseThrow(Optional.java:403)
+	at com.codetogether.hq.system.SystemSetupService.<init>(SystemSetupService.java:60)
+	at com.codetogether.hq.system.SystemSetupService.lambda$0(SystemSetupService.java:55)
+	at java.base/java.util.Map.computeIfAbsent(Map.java:1066)
+	at com.codetogether.hq.system.SystemSetupService.forContext(SystemSetupService.java:55)
+	at com.codetogether.hq.auth.AuthenticationService.<init>(AuthenticationService.java:50)
+	at com.codetogether.hq.auth.AuthenticationService.lambda$0(AuthenticationService.java:45)
+	at java.base/java.util.Map.computeIfAbsent(Map.java:1066)
+	at com.codetogether.hq.auth.AuthenticationService.forContext(AuthenticationService.java:45)
+	at com.codetogether.hq.events.EventsHandler.<init>(EventsHandler.java:66)
+	at com.codetogether.hq.events.EventsHandler.lambda$0(EventsHandler.java:61)
+	at java.base/java.util.Map.computeIfAbsent(Map.java:1066)
+	at com.codetogether.hq.events.EventsHandler.forContext(EventsHandler.java:61)
+	at com.codetogether.hq.eclipse.core.ui.InsightsStatusBarManager.startup(InsightsStatusBarManager.java:62)
+	at com.codetogether.hq.eclipse.CodeInsightsCore.lambda$5(CodeInsightsCore.java:159)
+	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:40)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:132)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:5052)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:4525)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$5.run(PartRenderingEngine.java:1151)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:339)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1042)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:153)
+	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:678)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:339)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:583)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:173)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:185)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:219)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:149)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:115)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:467)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:298)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:627)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:575)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1431)
+	at org.eclipse.equinox.launcher.Main.main(Main.java:1403)
+
+!ENTRY com.genuitec.copilot4eclipse.chat 1 0 2025-09-03 14:16:13.002
+!MESSAGE [C4E] Conversation persistence: /home/ainosoft/Documents/multi-service-webapp/.metadata/.plugins/com.genuitec.copilot4eclipse/chatdata
+
+!ENTRY com.genuitec.copilot4eclipse.copilotapi 1 0 2025-09-03 14:16:13.029
+!MESSAGE [C4E] Copilot API proxy: native mode
+
+!ENTRY com.genuitec.copilot4eclipse.chat 1 0 2025-09-03 14:16:13.171
+!MESSAGE [C4E] Internal server started: true uri: http://localhost:33891/chat
+
+!ENTRY com.genuitec.copilot4eclipse.boot 1 0 2025-09-03 14:16:13.920
+!MESSAGE C4E API started
+
+!ENTRY com.genuitec.copilot4eclipse.chat 1 0 2025-09-03 14:16:18.018
+!MESSAGE [C4E] Workspace labels: java,maven
+
+!ENTRY com.genuitec.copilot4eclipse.chat 1 0 2025-09-03 14:46:42.085
+!MESSAGE [C4E] Internal server stopped: Server@2106630{STOPPED}[10.0.25,sto=0]
+
+!ENTRY com.genuitec.copilot4eclipse.chat 1 0 2025-09-03 14:46:42.086
+!MESSAGE [C4E] Internal server stopped: true
