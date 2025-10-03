@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Organization Details</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css?family=Inter:400,500,600,700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #f9fafb;
+      color: #111827;
+      margin: 0;
+    }
+    .container {
+      max-width: 420px;
+      margin: 48px auto;
+      background: #fff;
+      border-radius: 18px;
+      box-shadow: 0 4px 24px rgba(17,24,39,0.07);
+      padding: 32px 28px 28px 28px;
+      text-align: left;
+      border: none;
+    }
+    .org-title {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #111827;
+      margin-bottom: 12px;
+      letter-spacing: -0.5px;
+      text-align: left;
+    }
+    .org-meta {
+      margin-bottom: 22px;
+      margin-top: 0;
+      display: flex;
+      gap: 0;
+      align-items: center;
+    }
+    .meta-field {
+      font-size: 1rem;
+      color: #fff;
+      display: inline-flex;
+      gap: 0;
+      align-items: center;
+      background: #23272f;
+      border-radius: 7px;
+      padding: 4px 14px 4px 10px;
+      box-shadow: none;
+    }
+    .meta-label {
+      font-weight: 600;
+      color: #f9fafb;
+      font-size: 1rem;
+      letter-spacing: 0.1px;
+    }
+    .meta-value {
+      font-weight: 600;
+      color: #f9fafb;
+      font-size: 1rem;
+      margin-left: 4px;
+    }
+    .services-section {
+      margin-top: 18px;
+    }
+    .services-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #6366f1;
+      margin-bottom: 10px;
+      letter-spacing: -0.5px;
+    }
+    .service-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      border-radius: 8px;
+      background: #f9fafb;
+      border: 1px dashed #6b7280;
+      min-height: 44px;
+    }
+    .service-item {
+      padding: 14px 16px;
+      border-bottom: 1px solid #f3f4f6;
+      font-size: 1rem;
+      color: #111827;
+      font-weight: 500;
+      transition: background 0.15s;
+    }
+    .service-item:last-child {
+      border-bottom: none;
+    }
+    .service-item.empty {
+      color: #6b7280;
+      font-style: italic;
+      text-align: center;
+      padding: 14px 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="org-title" id="orgName">Organization Name</div>
+    <div class="org-meta">
+      <div class="meta-field">
+        <span class="meta-label">Tenant:</span>
+        <span class="meta-value" id="tenantName">(tenant id or name)</span>
+      </div>
+    </div>
+    <div class="services-section">
+      <div class="services-title">Active Services</div>
+      <ul class="service-list" id="activeServices">
+        <li class="service-item empty">No active services found.</li>
+      </ul>
+    </div>
+  </div>
+  <script>
+   
+    const params = new URLSearchParams(window.location.search);
+    const orgName = params.get('orgName');
+    if (orgName) {
+      document.getElementById('orgName').textContent = orgName;
+     
+      document.getElementById('tenantName').textContent = orgName;
+    }
+    
+    const exampleServices = [];
+    const serviceList = document.getElementById('activeServices');
+    if (exampleServices.length > 0) {
+      serviceList.innerHTML = exampleServices.map(s => `<li class="service-item">${s}</li>`).join('');
+    }
+  </script>
+</body>
+</html>
